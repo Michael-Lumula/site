@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSec Engineer | Portfolio</title>
+    <meta name="description" content="Portfolio of a Cybersecurity and IT Infrastructure Engineer">
+
+    <!-- Favicon (from icons/ folder) -->
+    <link rel="icon" href="icons/icons8-security-shield-48.png" type="image/png" sizes="48x48">
+    <link rel="apple-touch-icon" href="icons/icons8-security-shield-48.png" sizes="48x48">
+    <meta name="theme-color" content="#0f172a">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <canvas id="matrix"></canvas>
+    <div class="scanline"></div>
+
+    <header>
+        <nav>
+            <div class="logo">michael</div>
+            <ul class="nav-links">
+                <li><a href="#about">_about</a></li>
+                <li><a href="#skills">_skills</a></li>
+                <li><a href="#projects">_projects</a></li>
+                <li><a href="#contact">_contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1 class="glitch" data-text="MICHAEL_LUMULA">MICHAEL_LUMULA</h1>
+                <p class="terminal-text">Initializing user profile... <span class="cursor">|</span></p>
+                <p class="terminal-text delayed">Cyber Security & IT Infrastructure Engineer</p>
+                <a href="#contact" class="btn">Execute_Contact_Protocol</a>
+            </div>
+        </section>
+
+        <section id="about" class="hidden">
+            <h2 class="section-title">01. /whoami</h2>
+            <div class="content-wrapper">
+                <p>
+                   I’m an IT specialist who genuinely enjoys working with technology and keeping up with how fast it changes. 
+                   My focus is on infrastructure, and I’ve spent a lot of time in cybersecurity, networking, DevOps, and managing 
+                   server systems. I work comfortably with open-source tools and I’m always looking for ways to sharpen my skills. 
+                   
+                   Staying curious helps me track new trends and deliver practical, reliable, and innovative solutions wherever I’m 
+                   involved.
+                </p>
+                <div class="tags" style="justify-content: center; margin-top: 20px;">
+                    <span>#OpenSource</span>
+                    <span>#Security</span>
+                    <span>#DevOps</span>
+                    <span>#ITOps</span>
+                    <span>#Collaboration</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="hidden">
+            <h2 class="section-title">02. /capabilities</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>[Core_Competencies]</h3>
+                    <ul>
+                        <li>Firewalls</li>
+                        <li>Virtualization</li>
+                        <li>Server Management</li>
+                        <li>Network Administration</li>
+                        <li>DevOps Engineering</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>[Security_Ops]</h3>
+                    <ul>
+                        <li>Intrusion Detection</li>
+                        <li>Linux Server Security</li>
+                        <li>Vulnerability Assessment</li>
+                        <li>Zero-Trust Architecture</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>[DevOps_&_Cloud]</h3>
+                    <ul>
+                        <li>Docker</li>
+                        <li>CI/CD</li>
+                        <li>Network/Servers Monitoring</li>
+                        <li>Cloud Infrastructure</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="hidden">
+            <h2 class="section-title">03. /experience</h2>
+            <div class="projects-grid">
+                <div class="project-card" style="grid-column: 1 / -1;">
+                    <h3>Server and Network Administrator @ APHRC</h3>
+                    <p class="date">Oct 2022 - Present | Kenya</p>
+                    <div class="achievements">
+                        <h4>> Data_Center_Management</h4>
+                        <p>Managed on-premise data center (Linux/Windows). Implemented centralized monitoring. Set up
+                            firewall and domain controller for West African regional office using open-source solutions.
+                        </p>
+
+                        <h4>> DevOps_Implementation</h4>
+                        <p>Implemented DevOps practices, integrating GitHub and Jenkins for CI/CD. Streamlined processes
+                            between development and operations teams.</p>
+
+                        <h4>> Data_Visualization_Deployment</h4>
+                        <p>Led deployment of data visualization apps using Docker. Containerized applications for
+                            consistent deployment and efficient scaling.</p>
+
+                        <h4>> Security_Hardening</h4>
+                        <p>Fortified Linux servers (CentOS, Debian, Ubuntu). Managed IDS (Snort, Suricata) to
+                            proactively identify threats.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="hidden">
+            <h2 class="section-title">04. /uplink</h2>
+            <p>Ready to secure your infrastructure? Initiate a connection.</p>
+            <div style="display: flex; gap: 20px; justify-content: center;">
+                <a href="mailto:ukandamichael1@gmail.com?subject=Project%20Inquiry&body=Hello%20Michael%2C%0D%0A%0D%0AI%20would%20like%20to%20discuss%20this%20project.%0D%0A%0D%0ARegards%2C%0D%0A%5BYour%20Name%5D"
+                    class="btn" onclick="return openMailComposer();">Send_Encrypted_Message</a>
+                <a href="https://www.linkedin.com/in/michaellumula/" target="_blank" class="btn">Connect_LinkedIn</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>System Status: <span class="status-ok">OPERATIONAL</span></p>
+        <p>&copy; 2025 Michael Lumula Ukanda. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        function openMailComposer() {
+            var to = 'ukandamichael1@gmail.com';
+            var subject = 'Project Inquiry';
+            var body = 'Hello Michael,\n\nRegards,\n[Your Name]';
+            var gmail = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(to) +
+                        '&su=' + encodeURIComponent(subject) +
+                        '&body=' + encodeURIComponent(body);
+
+         
+            if (confirm('Open Gmail compose in a new tab? Cancel to use your system mail client.')) {
+                window.open(gmail, '_blank');
+                return false;  
+            }
+            return true;  
+        }
+    </script>
+</body>
+
+</html>

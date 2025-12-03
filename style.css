@@ -1,0 +1,366 @@
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #e0e0e0;
+    --accent-color: #0f0;
+    /* Neon Green */
+    --secondary-accent: #00ffcc;
+    /* Cyan */
+    --font-mono: 'Fira Code', monospace;
+    --scanline-color: rgba(0, 255, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Scanline Effect */
+.scanline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            transparent 50%,
+            var(--scanline-color) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    color: var(--accent-color);
+    text-transform: uppercase;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Header */
+header {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(10, 10, 10, 0.9);
+    z-index: 100;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.terminal-text {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 red;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 blue;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(10px, 9999px, 30px, 0);
+    }
+
+    20% {
+        clip: rect(80px, 9999px, 100px, 0);
+    }
+
+    40% {
+        clip: rect(10px, 9999px, 140px, 0);
+    }
+
+    60% {
+        clip: rect(50px, 9999px, 60px, 0);
+    }
+
+    80% {
+        clip: rect(20px, 9999px, 80px, 0);
+    }
+
+    100% {
+        clip: rect(90px, 9999px, 10px, 0);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0% {
+        clip: rect(120px, 9999px, 140px, 0);
+    }
+
+    20% {
+        clip: rect(10px, 9999px, 30px, 0);
+    }
+
+    40% {
+        clip: rect(50px, 9999px, 70px, 0);
+    }
+
+    60% {
+        clip: rect(90px, 9999px, 110px, 0);
+    }
+
+    80% {
+        clip: rect(20px, 9999px, 40px, 0);
+    }
+
+    100% {
+        clip: rect(60px, 9999px, 80px, 0);
+    }
+}
+
+/* Sections */
+section {
+    padding: 100px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* Matrix Background */
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.15;
+    /* Subtle effect */
+}
+
+/* Typography Enhancements */
+h1,
+h2,
+h3 {
+    color: var(--accent-color);
+    text-transform: uppercase;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Button Enhancements */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: rgba(0, 255, 0, 0.05);
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.btn:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--accent-color);
+    text-shadow: none;
+}
+
+/* Card Enhancements */
+.skill-card,
+.project-card {
+    border: 1px solid #333;
+    padding: 25px;
+    transition: all 0.3s ease;
+    background: rgba(17, 17, 17, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card:hover,
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+}
+
+.skill-card::before,
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.skill-card:hover::before,
+.project-card:hover::before {
+    left: 100%;
+}
+
+/* Scroll Animations */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Animation Delays */
+.skills-grid .skill-card:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.skills-grid .skill-card:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.skills-grid .skill-card:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.projects-grid .project-card:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.projects-grid .project-card:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid #333;
+    margin-top: 50px;
+    color: #666;
+}
+
+.status-ok {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    .nav-links {
+        display: none;
+        /* Simple hide for now, could add hamburger later */
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+}
