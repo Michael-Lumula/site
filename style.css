@@ -329,23 +329,84 @@ h3 {
     transition-delay: 0.2s;
 }
 
-
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 40px;
-    border-top: 1px solid #333;
-    margin-top: 50px;
-    color: #666;
+/* Profile Container */
+.profile-container {
+    position: relative;
+    flex-shrink: 0;
 }
 
-.status-ok {
+.content-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+/* Profile Image */
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    box-shadow: 
+        0 0 30px rgba(0, 255, 0, 0.4),
+        0 0 60px rgba(0, 255, 0, 0.2),
+        inset 0 0 30px rgba(0, 255, 0, 0.1);
+    object-fit: cover;
+    object-position: center top;
+    background: linear-gradient(135deg, rgba(0, 255, 0, 0.1), rgba(0, 255, 204, 0.05));
+    position: relative;
+    filter: brightness(0.85) contrast(1.1);
+}
+
+.profile-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.profile-image::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 1px solid rgba(0, 255, 0, 0.2);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.content-wrapper > div:last-child {
+    flex: 1;
+    min-width: 250px;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.tags span {
+    padding: 5px 12px;
+    border: 1px solid var(--accent-color);
     color: var(--accent-color);
-    font-weight: bold;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    background: rgba(0, 255, 0, 0.05);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 2.5rem;
@@ -363,4 +424,27 @@ footer {
     section {
         padding: 60px 20px;
     }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid #333;
+    margin-top: 50px;
+    color: #666;
+}
+
+.status-ok {
+    color: var(--accent-color);
+    font-weight: bold;
 }
