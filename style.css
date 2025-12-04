@@ -399,12 +399,14 @@ h3 {
 }
 
 .tags span {
-    padding: 5px 12px;
-    border: 1px solid var(--accent-color);
+    padding: 0;
+    border: none;
+    background: transparent;
     color: var(--accent-color);
-    border-radius: 20px;
-    font-size: 0.85rem;
-    background: rgba(0, 255, 0, 0.05);
+    border-radius: 0;
+    font-weight: 600;
+    margin-right: 12px;
+    font-size: 0.95rem;
 }
 
 @media (max-width: 768px) {
