@@ -148,5 +148,12 @@ function playBootSequence() {
     });
 }
 
-// Call on page load
-window.addEventListener('load', playBootSequence);
+// Check if first visit and show boot sequence only once
+window.addEventListener('load', () => {
+    const hasVisited = localStorage.getItem('hasVisited');
+    
+    if (!hasVisited) {
+        playBootSequence();
+        localStorage.setItem('hasVisited', 'true');
+    }
+});
