@@ -674,7 +674,10 @@ footer {
 .modal-panel {
     position: relative;
     max-width: 900px;
-    margin: 60px auto;
+    margin: auto;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
     background: linear-gradient(180deg, rgba(6, 10, 12, 0.98), rgba(4, 6, 8, 0.98));
     border: 1px solid rgba(0, 255, 170, 0.06);
     border-radius: 10px;
@@ -695,6 +698,10 @@ footer {
     cursor: pointer;
 }
 
+.modal-header {
+    text-align: center;
+}
+
 .modal-header .modal-title {
     margin: 0 0 6px 0;
     color: #bfffe8;
@@ -709,6 +716,7 @@ footer {
 .modal-content {
     color: rgba(191, 255, 232, 0.95);
     line-height: 1.6;
+    overflow-y: auto;
 }
 
 /* responsive adjustments */

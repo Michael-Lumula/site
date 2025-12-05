@@ -16,9 +16,8 @@
             height: 100%;
             object-fit: cover;
             z-index: -2;
-            opacity: 0.02;
-            filter: blur(4px) grayscale(80%);
-            mix-blend-mode: screen;
+            opacity: 0.10;
+            filter: blur(4px);
         }
 
         /* Ensure content is readable */
@@ -47,7 +46,7 @@
     </header>
 
     <video autoplay muted loop playsinline id="bg-video">
-        <source src="video.mp4" type="video/mp4">
+        <source src="vid1.mp4" type="video/mp4">
     </video>
 
     <main>
@@ -139,7 +138,7 @@
 
                 modal.setAttribute('aria-hidden', 'false');
                 document.body.classList.add('modal-open');
-                modal.style.display = 'block';
+                modal.style.display = 'flex';
 
                 // focus the panel for keyboard users
                 modal.querySelector('.modal-panel').focus();
