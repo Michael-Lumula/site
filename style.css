@@ -223,6 +223,8 @@ section {
     padding: 100px 50px;
     max-width: 1200px;
     margin: 0 auto;
+    scroll-margin-top: 100px;
+    /* Account for fixed header */
 }
 
 .section-title {
@@ -845,6 +847,14 @@ footer {
 
     .btn {
         width: 100%;
+        text-align: center;
+    }
+
+    .site-footer {
+        text-align: center;
+    }
+
+    #contact {
         text-align: center;
     }
 }
