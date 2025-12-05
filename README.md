@@ -1,4 +1,4 @@
-# CyberSec Engineer — Portfolio
+# Michael Lumula — Portfolio
 
 A lightweight, single-page portfolio with a cyber / terminal aesthetic. Built with plain HTML, CSS and JavaScript.
 
