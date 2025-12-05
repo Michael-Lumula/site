@@ -7,6 +7,25 @@
     <title>Blog — Michael Lumula</title>
     <link rel="icon" href="../icons/icons8-security-shield-48.png" type="image/png" sizes="48x48">
     <link rel="stylesheet" href="../style.css">
+    <style>
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            opacity: 0.02;
+            filter: blur(4px) grayscale(80%);
+            mix-blend-mode: screen;
+        }
+
+        /* Ensure content is readable */
+        body {
+            background-color: rgba(10, 10, 10, 0.92);
+        }
+    </style>
 </head>
 
 <body>
@@ -26,6 +45,10 @@
             </ul>
         </nav>
     </header>
+
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="video.mp4" type="video/mp4">
+    </video>
 
     <main>
         <section id="blog" style="padding-top:140px;">
