@@ -1,42 +1,21 @@
-# Michael Lumula — Portfolio
+# Michael Lumula - Portfolio
 
-A lightweight, single-page portfolio with a cyber / terminal aesthetic. Built with plain HTML, CSS and JavaScript.
+My personal portfolio website featuring a cyber/terminal aesthetic. It showcases my work in cybersecurity, IT infrastructure, and DevOps.
 
-## Features
-- Neon "matrix" background animation and scanline overlay.
-- Glitch header effect and terminal-style typewriter lines.
-- Scroll reveal animations using the Intersection Observer.
-- Contact link that can open Gmail compose via a helper function.
+## Overview
 
-## Files
-- [index.html](index.html) — main HTML markup and inline `openMailComposer` helper (`openMailComposer` is defined in this file)  
-- [style.css](style.css) — theme variables, layout, scanline, glitch, and responsive styles  
-- [script.js](script.js) — DOM behaviors: intersection observer (`observer`), typewriter, matrix rain (`drawMatrix`) and resize handling  
-- [README.md](README.md) — this file
+The site is built with vanilla HTML, CSS, and JavaScript. No frameworks or build steps required.
 
-## Key code references
-- Contact compose helper: [`openMailComposer`](index.html)  
-- Matrix rendering function: [`drawMatrix`](script.js)  
-- Intersection Observer instance: [`observer`](script.js)  
-- Important selectors / assets: [#matrix](style.css), [`.scanline`](style.css), [`.glitch`](style.css), [`.hidden` / `.visible`](style.css)
+Key features:
+- Responsive design with a mobile-friendly menu
+- Matrix rain background effect
+- Terminal-style typing animations
+- Blog section for technical posts
 
-## Usage
-1. Clone or copy the project files into a folder.
-2. Open [index.html](index.html) in a modern browser (no build step required).
-3. Click "Execute_Contact_Protocol" to trigger the mail composer behavior (prompts to open Gmail or the system mail client).
+## Running Locally
 
-## Development notes
-- Layout and theme colors are driven by CSS variables in [style.css](style.css) (edit `:root` to customize colors and font).
-- The matrix effect uses a canvas (`#matrix`) and runs in [script.js](script.js). Adjust `fontSize` or interval in [`drawMatrix`](script.js) to change density/speed.
-- Scroll reveals are implemented with Intersection Observer (`observer`) — `.hidden` elements become `.visible` when scrolled into view.
+Just open `index.html` in any browser.
 
-## Customization tips
-- Change the neon palette in `:root` inside [style.css](style.css).
-- Replace the hero text in [index.html](index.html) (`MICHAEL_LUMULA`) or update the `.delayed` text to change the typewriter content.
-- To stop the matrix animation, remove or comment out the `setInterval(drawMatrix, 33);` call in [script.js](script.js).
+## Customization
 
-## License
-Personal/Portfolio — modify as needed.
-
-----
-If you want, I can populate this README with badges, a screenshot, or a short deployment section for GitHub Pages.
+Most of the styling is handled in `style.css` using CSS variables for easy color tweaking. The matrix effect and other interactive elements are in `script.js`.
