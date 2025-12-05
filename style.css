@@ -733,8 +733,10 @@ footer {
     }
 
     .modal-panel {
-        margin: 30px 16px;
+        margin: auto;
         padding: 16px;
+        width: 90%;
+        max-height: 85vh;
     }
 }
 
