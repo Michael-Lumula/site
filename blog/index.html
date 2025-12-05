@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -7,10 +8,16 @@
     <link rel="icon" href="../icons/icons8-security-shield-48.png" type="image/png" sizes="48x48">
     <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
     <header>
         <nav>
-            <div class="logo">michael</div>
+            <a href="../index.html" class="logo">michael</a>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="../index.html">/home</a></li>
                 <li><a href="../index.html#about">/whoami</a></li>
@@ -29,24 +36,36 @@
                 <!-- Post card: square thumbnail + heading + short excerpt -->
                 <article class="post-card" tabindex="0" aria-labelledby="post-1-title" data-post-id="post-1">
                     <div class="post-thumb" role="img" aria-label="Cloud outages thumbnail"
-                         style="background-image: linear-gradient(135deg,#022,#064);">
+                        style="background-image: linear-gradient(135deg,#022,#064);">
                     </div>
 
                     <div class="post-body">
                         <h3 id="post-1-title" class="post-title">Cloud Outages vs On-Prem: What’s Really Happening?</h3>
-                        <p class="post-excerpt">Cloud outages are more visible lately — major providers sometimes fail and the blast radius is large. Click to read.</p>
+                        <p class="post-excerpt">Cloud outages are more visible lately — major providers sometimes fail
+                            and the blast radius is large. Click to read.</p>
                         <p class="post-meta">Posted: Dec 2025</p>
 
                         <!-- hidden full content (picked up by modal) -->
                         <div class="post-full-content" aria-hidden="true" style="display:none;">
                             <p>
-                                Cloud outages have become more noticeable lately. Big providers like AWS, Google Cloud, and Azure occasionally experience service disruptions, and when they do, the impact spreads quickly because so many organizations depend on them. Even though cloud platforms offer great scalability and convenience, these incidents show that no environment is immune to failure.
+                                Cloud outages have become more noticeable lately. Big providers like AWS, Google Cloud,
+                                and Azure occasionally experience service disruptions, and when they do, the impact
+                                spreads quickly because so many organizations depend on them. Even though cloud
+                                platforms offer great scalability and convenience, these incidents show that no
+                                environment is immune to failure.
                             </p>
                             <p>
-                                On the other side, businesses that run their services on-premise avoid widespread cloud outages, but they carry the responsibility of maintaining uptime themselves. That means investing in power redundancy, cooling, security, patching, monitoring, and disaster recovery. It’s more control, but also more work.
+                                On the other side, businesses that run their services on-premise avoid widespread cloud
+                                outages, but they carry the responsibility of maintaining uptime themselves. That means
+                                investing in power redundancy, cooling, security, patching, monitoring, and disaster
+                                recovery. It’s more control, but also more work.
                             </p>
                             <p>
-                                In the end, neither approach is perfect. Cloud gives you speed and flexibility, while on-prem gives you control and independence. The smart move for most companies today is a balanced hybrid model: keep critical workloads on-prem and leverage the cloud for scaling, backups, or non-critical services. This reduces the blast radius of outages and builds stronger resilience overall.
+                                In the end, neither approach is perfect. Cloud gives you speed and flexibility, while
+                                on-prem gives you control and independence. The smart move for most companies today is a
+                                balanced hybrid model: keep critical workloads on-prem and leverage the cloud for
+                                scaling, backups, or non-critical services. This reduces the blast radius of outages and
+                                builds stronger resilience overall.
                             </p>
                         </div>
                     </div>
@@ -72,61 +91,65 @@
     </div>
 
     <footer>
-        <p style="text-align:center;color:rgba(191,255,232,0.45);padding:20px 0;margin:0;">© 2025 Michael Lumula Ukanda.</p>
+        <p style="text-align:center;color:rgba(191,255,232,0.45);padding:20px 0;margin:0;">© 2025 Michael Lumula Ukanda.
+        </p>
     </footer>
 
+    <script src="../script.js"></script>
+
     <script>
-    (function(){
-        const modal = document.getElementById('post-modal');
-        const modalTitle = modal.querySelector('.modal-title');
-        const modalMeta = modal.querySelector('.modal-meta');
-        const modalContent = modal.querySelector('.modal-content');
-        const closeEls = modal.querySelectorAll('[data-close]');
+        (function () {
+            const modal = document.getElementById('post-modal');
+            const modalTitle = modal.querySelector('.modal-title');
+            const modalMeta = modal.querySelector('.modal-meta');
+            const modalContent = modal.querySelector('.modal-content');
+            const closeEls = modal.querySelectorAll('[data-close]');
 
-        function openModalFromCard(card) {
-            const title = card.querySelector('.post-title').textContent;
-            const meta = card.querySelector('.post-meta') ? card.querySelector('.post-meta').textContent : '';
-            const full = card.querySelector('.post-full-content').innerHTML;
+            function openModalFromCard(card) {
+                const title = card.querySelector('.post-title').textContent;
+                const meta = card.querySelector('.post-meta') ? card.querySelector('.post-meta').textContent : '';
+                const full = card.querySelector('.post-full-content').innerHTML;
 
-            modalTitle.textContent = title;
-            modalMeta.textContent = meta;
-            modalContent.innerHTML = full;
+                modalTitle.textContent = title;
+                modalMeta.textContent = meta;
+                modalContent.innerHTML = full;
 
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.classList.add('modal-open');
-            modal.style.display = 'block';
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('modal-open');
+                modal.style.display = 'block';
 
-            // focus the panel for keyboard users
-            modal.querySelector('.modal-panel').focus();
-        }
+                // focus the panel for keyboard users
+                modal.querySelector('.modal-panel').focus();
+            }
 
-        function closeModal() {
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.classList.remove('modal-open');
-            modal.style.display = 'none';
-            modalTitle.textContent = '';
-            modalMeta.textContent = '';
-            modalContent.innerHTML = '';
-        }
+            function closeModal() {
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('modal-open');
+                modal.style.display = 'none';
+                modalTitle.textContent = '';
+                modalMeta.textContent = '';
+                modalContent.innerHTML = '';
+            }
 
-        // open handlers
-        document.querySelectorAll('.post-card').forEach(card => {
-            card.addEventListener('click', () => openModalFromCard(card));
-            card.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    openModalFromCard(card);
-                }
+            // open handlers
+            document.querySelectorAll('.post-card').forEach(card => {
+                card.addEventListener('click', () => openModalFromCard(card));
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openModalFromCard(card);
+                    }
+                });
             });
-        });
 
-        // close handlers
-        closeEls.forEach(el => el.addEventListener('click', closeModal));
-        modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
-        });
-    })();
+            // close handlers
+            closeEls.forEach(el => el.addEventListener('click', closeModal));
+            modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
+            });
+        })();
     </script>
 </body>
+
 </html>
