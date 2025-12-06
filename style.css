@@ -283,7 +283,10 @@ h3 {
 
 /* Card Enhancements */
 .skill-card,
-.project-card {
+.project-card,
+.hobby-card,
+.education-card,
+.cert-card {
     border: 1px solid #333;
     padding: 25px;
     transition: all 0.3s ease;
@@ -293,14 +296,20 @@ h3 {
 }
 
 .skill-card:hover,
-.project-card:hover {
+.project-card:hover,
+.hobby-card:hover,
+.education-card:hover,
+.cert-card:hover {
     transform: translateY(-5px);
     border-color: var(--accent-color);
     box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
 }
 
 .skill-card::before,
-.project-card::before {
+.project-card::before,
+.hobby-card::before,
+.education-card::before,
+.cert-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -312,7 +321,10 @@ h3 {
 }
 
 .skill-card:hover::before,
-.project-card:hover::before {
+.project-card:hover::before,
+.hobby-card:hover::before,
+.education-card:hover::before,
+.cert-card:hover::before {
     left: 100%;
 }
 
