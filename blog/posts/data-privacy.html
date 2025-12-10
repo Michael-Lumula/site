@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Data Privacy & Ethics in The Digital Age | Michael's Blog</title>
+    <link rel="icon" href="../../icons/icons8-security-shield-48.png" type="image/png" sizes="48x48">
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* Article Page Specific Styles */
+        :root {
+            --card-bg: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #666;
+            --accent-color: #FF5722;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Explicitly hide matrix and scanline effects */
+        #matrix,
+        .scanline {
+            display: none !important;
+        }
+
+        /* Header adjustments from blog index */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            color: #1a1a1a !important;
+        }
+
+        .nav-links a {
+            color: #1a1a1a;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #FF5722;
+        }
+
+        .bar {
+            background-color: #1a1a1a;
+        }
+
+        /* Mobile Menu Override */
+        @media (max-width: 768px) {
+            .nav-links {
+                background-color: #ffffff !important;
+            }
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: var(--accent-color);
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        /* Main Layout */
+        main {
+            padding-top: 0;
+            max-width: 100%;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        /* Global overrides for this page to prevent green bleed-through */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            text-shadow: none;
+        }
+
+        /* Hero Section */
+        .article-hero {
+            position: relative;
+            margin: 0 0 40px 0;
+            border-radius: 0 0 20px 20px;
+            overflow: hidden;
+            height: 60vh;
+            min-height: 450px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .article-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 40px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
+        }
+
+        .hero-meta {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin: 0 0 10px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            text-transform: none;
+            color: white;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+        }
+
+        /* Content Wrapper */
+        .content-wrapper {
+            display: block;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Main Article */
+        .article-body {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: none;
+            text-shadow: none;
+        }
+
+        .article-body p {
+            margin-bottom: 24px;
+        }
+
+        .article-body ul {
+            margin-bottom: 24px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .drop-cap::first-letter {
+            font-size: 3.5rem;
+            float: left;
+            line-height: 1;
+            padding-right: 12px;
+            padding-top: 4px;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            margin: 30px 0;
+            padding: 10px 20px;
+            background: #f9f9f9;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #555;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Author Bio Block */
+        .author-bio {
+            display: flex;
+            align-items: center;
+            background: #f5f7fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 40px;
+            gap: 20px;
+        }
+
+        .author-bio img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .bio-text h4 {
+            margin: 0 0 5px 0;
+            color: #1a1a1a;
+            text-transform: none;
+        }
+
+        .bio-text p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: #666;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: none;
+        }
+
+        .sidebar-widget {
+            margin-bottom: 40px;
+        }
+
+        .widget-title {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .related-post {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            text-decoration: none;
+            /* group; removed invalid property */
+        }
+
+        .related-thumb {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .related-info h4 {
+            font-size: 0.95rem;
+            margin: 0 0 5px 0;
+            color: #1a1a1a;
+            text-transform: none;
+            line-height: 1.4;
+            transition: color 0.2s;
+        }
+
+        .related-post:hover .related-info h4 {
+            color: var(--accent-color);
+        }
+
+        .related-date {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            padding: 6px 12px;
+            background: #f0f0f0;
+            color: #555;
+            font-size: 0.85rem;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .tag:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* Footer Actions */
+        .article-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            background: white;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .action-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            background: rgba(255, 87, 34, 0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                margin-top: 40px;
+            }
+
+            .article-hero {
+                height: 300px;
+                margin: 20px 0;
+                border-radius: 0;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">michael</a>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../../index.html#about">/whoami</a></li>
+                <li><a href="../../index.html#skills">/capabilities</a></li>
+                <li><a href="../../index.html#projects">/experience</a></li>
+                <li><a href="../../index.html#contact">/uplink</a></li>
+                <li><a href="../../education/index.html">/education</a></li>
+                <li><a href="../../hobbies/index.html">/hobbies</a></li>
+                <li><a href="../index.html" class="active">/blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <div class="article-hero">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200"
+                alt="Data Privacy Hero">
+            <div class="hero-overlay">
+                <div class="hero-meta">Cybersecurity • September 28, 2025</div>
+                <h1 class="hero-title">Data Privacy & Ethics in The Digital Age</h1>
+                <p class="hero-subtitle">How companies are navigating the complex landscape of user data protection and
+                    ethical usage protocols.</p>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <!-- Article Content -->
+            <article class="article-body">
+                <p>Every time we open an app, make a purchase, or browse online, we leave behind small pieces of
+                    ourselves. Our data has become a kind of currency, and companies are trying to balance the value it
+                    brings with the responsibility of protecting it. The digital world is growing fast, and the rules
+                    around privacy and ethics are trying to catch up.</p>
+
+                <h2>Companies are rethinking how they handle data</h2>
+                <p>A few years back, most companies collected everything they could because storage was cheap and
+                    analytics were exciting. Now, that mindset is changing. There’s more pressure from regulators, users
+                    are more aware of their rights, and trust has become a competitive advantage.</p>
+                <p>Businesses are starting to collect only what they need, store it for shorter periods, and be clearer
+                    about why they’re collecting it in the first place.</p>
+
+                <h2>Transparency is no longer optional</h2>
+                <p>People want to know what’s happening with their data. Who’s using it? How long is it kept? Is it
+                    being sold or shared? Companies that hide behind long, confusing privacy policies are losing trust
+                    fast.</p>
+                <p>The trend now is toward simple explanations, clearer permissions, and giving users more control. Even
+                    big tech firms are shifting to dashboards where you can see and manage your data in a few clicks.
+                </p>
+
+                <h2>Ethics go beyond compliance</h2>
+                <p>Following the law is one thing. Doing the right thing is another. Ethical data use means asking
+                    harder questions:</p>
+                <ul>
+                    <li>Should we collect this data at all?</li>
+                    <li>Are we using it in a way that respects the user?</li>
+                    <li>Could this cause harm if it leaks or is misused?</li>
+                </ul>
+                <p>More companies are forming internal ethics boards, reviewing AI models for bias, and testing systems
+                    to make sure they’re fair. It’s a slow process, but it’s moving in the right direction.</p>
+
+                <h2>Security is becoming part of brand reputation</h2>
+                <p>A breach doesn’t just cause downtime or legal issues. It damages trust. Users are paying attention to
+                    how companies secure their systems, encrypt sensitive information, and respond when something goes
+                    wrong.</p>
+                <p>Strong security practices are no longer just technical requirements. They’re part of a company’s
+                    identity.</p>
+
+                <h2>Regulations are tightening globally</h2>
+                <p>From GDPR in Europe to new data protection laws in Africa and Asia, governments are setting stricter
+                    standards. Companies that operate across borders now have to navigate different rules and
+                    expectations, which forces them to rethink how they design systems and how they handle user
+                    information.</p>
+                <p>This complexity is pushing organizations toward privacy-by-design approaches instead of last-minute
+                    fixes.</p>
+
+                <h2>The future of digital ethics</h2>
+                <p>As AI systems get smarter and the amount of data grows, companies will need to make even tougher
+                    decisions. Consent, fairness, bias, and transparency will shape how technology evolves. The
+                    companies that get this right will lead the next wave of digital innovation.</p>
+                <p>At the end of the day, data isn’t just numbers on a server. It represents real people. Treating it
+                    with respect isn’t just good ethics it’s good business.</p>
+
+                <!-- Author Bio -->
+                <div class="author-bio">
+                    <img src="../../images/mike.png" alt="Michael">
+                    <div class="bio-text">
+                        <h4>Written by Michael</h4>
+                        <p>Cybersecurity Engineer & Tech Enthusiast. Exploring the intersection of AI, security, and
+                            human creativity.</p>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="article-actions">
+                    <button class="action-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                            </path>
+                        </svg>
+                        Like
+                    </button>
+                    <button class="action-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z">
+                            </path>
+                        </svg>
+                        Share
+                    </button>
+                    <a href="../index.html" class="action-btn" style="margin-left:auto;">Back to Blog</a>
+                </div>
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Sidebar widgets removed as requested -->
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <p style="text-align:center;color:rgba(0,0,0,0.45);padding:20px 0;margin:0;">© 2025 Michael Lumula Ukanda.</p>
+    </footer>
+
+    <script src="../../script.js"></script>
+    <script>
+        // Progress Bar Script
+        window.onscroll = function () { myFunction() };
+        function myFunction() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+        }
+
+        // Like Button Logic
+        const likeBtn = document.querySelector('.action-btn:nth-child(1)');
+        let isLiked = false;
+        likeBtn.addEventListener('click', () => {
+            isLiked = !isLiked;
+            if (isLiked) {
+                likeBtn.style.color = '#FF5722';
+                likeBtn.style.borderColor = '#FF5722';
+                likeBtn.style.background = 'rgba(255, 87, 34, 0.1)';
+                likeBtn.innerHTML = `<svg width="20" height="20" fill="currentColor" stroke="none" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg> Liked`;
+                // Trigger notification simulation
+                alert("Notification sent to Michael: New Like on 'Data Privacy'");
+            } else {
+                likeBtn.style.color = '';
+                likeBtn.style.borderColor = '';
+                likeBtn.style.background = '';
+                likeBtn.innerHTML = `<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg> Like`;
+            }
+        });
+
+        // Share Button Logic
+        const shareBtn = document.querySelector('.action-btn:nth-child(2)');
+        shareBtn.addEventListener('click', async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'Data Privacy & Ethics in The Digital Age',
+                        text: 'Check out this article by Michael!',
+                        url: window.location.href,
+                    });
+                } catch (err) {
+                    console.log('Error sharing:', err);
+                }
+            } else {
+                // Fallback
+                navigator.clipboard.writeText(window.location.href);
+                alert("Link copied to clipboard!");
+            }
+        });
+    </script>
+</body>
+
+</html>
