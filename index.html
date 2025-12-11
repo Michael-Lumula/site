@@ -46,10 +46,18 @@
     <main>
         <section id="hero">
             <div class="hero-content">
-                <h1 class="glitch" data-text="Sir_MICHAEL">Sir_MICHAEL</h1>
-                <p class="terminal-text">Initializing user profile... <span class="cursor">|</span></p>
+                <p class="terminal-text system-init"
+                    style="color: var(--accent-color); font-weight: bold; text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);">
+                    > Initializing user profile... <span class="cursor">|</span>
+                </p>
                 <p class="terminal-text delayed">Cyber Security & IT Infrastructure Engineer</p>
-                <a href="#contact" class="btn">Execute_Contact_Protocol</a>
+                <div id="scroll-down" class="scroll-indicator"
+                    onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg>
+                </div>
             </div>
         </section>
 
