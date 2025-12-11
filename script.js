@@ -41,6 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     i++;
                 } else {
                     clearInterval(typeWriter);
+                    // Show scroll indicator after typing finishes
+                    const scrollInd = document.getElementById('scroll-down');
+                    if (scrollInd) {
+                        scrollInd.style.opacity = '1';
+                    }
                 }
             }, 50);
         }, 1500); // Start after 1.5s
