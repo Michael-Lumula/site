@@ -143,6 +143,24 @@ header {
     }
 }
 
+/* Mobile Responsive Adjustments for Scroll Indicator */
+@media (max-width: 768px) {
+    #hero {
+        min-height: 100dvh;
+        /* Better for mobile browsers */
+    }
+
+    .scroll-indicator {
+        bottom: 20px;
+        /* More space at bottom on mobile */
+    }
+
+    .scroll-indicator svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
 .hero-content h1 {
     font-size: 4rem;
     margin-bottom: 20px;
