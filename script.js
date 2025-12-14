@@ -62,6 +62,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // Matrix Rain Effect
     const canvas = document.getElementById('matrix');
+
+    // Scroll Indicator Logic
+    const scrollInd = document.getElementById('scroll-down');
+    if (scrollInd) {
+        // Fade out on click
+        scrollInd.addEventListener('click', () => {
+            scrollInd.style.opacity = '0';
+            scrollInd.style.pointerEvents = 'none';
+        });
+
+        // Fade out on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                scrollInd.style.opacity = '0';
+                scrollInd.style.pointerEvents = 'none';
+            } else {
+                // Only restore if the typing animation has finished (page unlocked)
+                if (!document.body.classList.contains('loading-locked')) {
+                    scrollInd.style.opacity = '1';
+                    scrollInd.style.pointerEvents = 'auto';
+                }
+            }
+        });
+    }
     if (canvas) {
         const ctx = canvas.getContext('2d');
 
