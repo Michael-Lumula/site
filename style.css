@@ -23,6 +23,16 @@ body {
     overflow-x: hidden;
 }
 
+/* Loading Lock State */
+body.loading-locked {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+body.loading-locked * {
+    pointer-events: none !important;
+}
+
 /* Scanline Effect */
 .scanline {
     position: fixed;

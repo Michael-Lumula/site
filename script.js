@@ -46,6 +46,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (scrollInd) {
                         scrollInd.style.opacity = '1';
                     }
+
+                    // Update initialization text
+                    const initText = document.querySelector('.system-init');
+                    if (initText) {
+                        initText.innerHTML = '> Initialization Complete.';
+                        initText.style.color = '#0f0'; // Ensure it stays green/accent
+                    }
+
+                    // Unlock page
+                    document.body.classList.remove('loading-locked');
                 }
             }, 50);
         }, 1500); // Start after 1.5s
