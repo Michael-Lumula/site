@@ -50,12 +50,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Update initialization text
                     const initText = document.querySelector('.system-init');
                     if (initText) {
-                        initText.innerHTML = '> Initialization Complete.';
-                        initText.style.color = '#0f0'; // Ensure it stays green/accent
-                    }
+                        // Fade out
+                        initText.classList.add('fade-out');
 
-                    // Unlock page
-                    document.body.classList.remove('loading-locked');
+                        setTimeout(() => {
+                            // Change text and color while hidden
+                            initText.innerHTML = '> Initialization Complete.';
+                            initText.style.color = '#0f0';
+
+                            // Fade back in
+                            initText.classList.remove('fade-out');
+
+                            // Unlock page after text reappears (plus a small delay for effect)
+                            setTimeout(() => {
+                                document.body.classList.remove('loading-locked');
+                            }, 500);
+
+                        }, 500); // Wait for fade out transition (0.5s)
+                    } else {
+                        // Fallback unlock if element missing
+                        document.body.classList.remove('loading-locked');
+                    }
                 }
             }, 50);
         }, 1500); // Start after 1.5s
