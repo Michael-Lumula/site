@@ -844,6 +844,14 @@ footer {
         font-size: 1rem;
     }
 
+    .system-init {
+        transition: opacity 0.5s ease;
+    }
+
+    .system-init.fade-out {
+        opacity: 0;
+    }
+
     /* Navigation */
     .nav-links {
         gap: 15px;
